@@ -2,20 +2,23 @@
 #make sure to edit the value of each key to replace < path to this directory >
 #with the correct path to this directory on your computer
 
-# my_songs = {
-# "Go Go GO" => '< path to this directory >/jukebox-cli/audio/Emerald-Park/01.mp3',
-# "LiberTeens" => '< path to this directory >/jukebox-cli/audio/Emerald-Park/02.mp3',
-# "Hamburg" =>  '< path to this directory >/jukebox-cli/audio/Emerald-Park/03.mp3',
-# "Guiding Light" => '< path to this directory >/jukebox-cli/audio/Emerald-Park/04.mp3',
-# "Wolf" => '< path to this directory >/jukebox-cli/audio/Emerald-Park/05.mp3',
-# "Blue" => '< path to this directory >/jukebox-cli/audio/Emerald-Park/06.mp3',
-# "Graduation Failed" => '< path to this directory >/jukebox-cli/audio/Emerald-Park/07.mp3'
-# }
+my_songs = {
+ "Go Go GO" => '/Users/themysterymachine/Development/code/jukebox-cli-web-100817/audio/Emerald-Park/01.mp3',
+ "LiberTeens" => '/Users/themysterymachine/Development/code/jukebox-cli-web-100817/audio/Emerald-Park/02.mp3',
+ "Hamburg" =>  '/Users/themysterymachine/Development/code/jukebox-cli-web-100817/audio/Emerald-Park/03.mp3',
+ "Guiding Light" => '/Users/themysterymachine/Development/code/jukebox-cli-web-100817/audio/Emerald-Park/04.mp3',
+ "Wolf" => '/Users/themysterymachine/Development/code/jukebox-cli-web-100817/audio/Emerald-Park/05.mp3',
+ "Blue" => '/Users/themysterymachine/Development/code/jukebox-cli-web-100817/audio/Emerald-Park/06.mp3',
+ "Graduation Failed" => '/Users/themysterymachine/Development/code/jukebox-cli-web-100817/audio/Emerald-Park/07.mp3' }
 
-def help
-  #this method should be the same as in jukebox.rb
-
+def help #working
+    puts "I accept the following commands:"
+    puts "- help : displays this help message"
+    puts "- list : displays a list of songs you can play"
+    puts "- play : lets you choose a song to play"
+    puts "- exit : exits this program"
 end
+
 
 
 
@@ -36,10 +39,26 @@ def play(my_songs)
   
 end
 
-def exit_jukebox
-  #this method is the same as in jukebox.rb
+def exit_jukebox #working
+    puts "Goodbye"
 end
 
-def run(my_songs)
-  #this method is the same as in jukebox.rb
+
+def run(songs) #working
+    help
+    puts "Please enter a command:"
+    input = gets.chomp
+    until input == "exit"
+        case input
+            when input == "list"
+            list(songs)
+            when input == "play"
+            play(songs)
+            when input == "help"
+            help
+        end
+        
+        break
+    end
+    exit_jukebox
 end
